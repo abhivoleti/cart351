@@ -48,6 +48,11 @@ def reg_thank_you():
                               lName = request.form["l_name"])
 
     
+
+# aroute
+@app.route('/getForm')
+def getFetchForm():
+    return render_template("form_fetch.html")
     
 @app.route("/pineappleA")
 def pineAppleA():

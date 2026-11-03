@@ -128,3 +128,33 @@ footer {
 .register-collect{ padding-top: 10px;background-color:rgb(246, 227, 245);padding-bottom:10px;}
 #submitRegister{width:auto;margin-top:10px;}
 .register-collect h3{padding:5px;text-align: center; font-size:24px;color:rgb(191, 147, 189);}
+
+/*** results **/
+#results{
+  margin-top:4vh;
+  margin-bottom:4vh;
+  color:rgb(211, 172, 209);
+  font-size:18px;
+}
+#result-container{
+    padding:1%;
+    background: rgb(211, 172, 209);
+    width:50%;
+    font-size:14px;
+    color:white;
+  
+}
+#result-container p{
+  padding:4px;
+   font-size:16px;
+}
+#result-container p mark{
+  color: rgb(211, 172, 209);
+  background:white;
+  padding:2px;
+}
+#result-container img{
+  width:80%;
+  height: auto;
+
+}
