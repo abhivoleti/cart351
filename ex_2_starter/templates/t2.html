@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+   
+    <section class="inputData">
+        <form action="{{ url_for('getSearchCriteria_adv') }}" method="get">
+            
+            <h3>NASA API SEARCH CRITERIA</h3>
+            </fieldset>
+            <p></p>
+                <input type="text" size="28" maxlength="40" name="search_query" placeholder="Enter search criteria" required>
+            </p>
+              <input id="submitBtn" type = "submit" name="submit" style="margin: 10px "/>
+            </fieldset>
+        </form>
+    </section>
+
+    {% if images %}
+    <h3>Results</h3>
+    <section class = "images-results">
+        {% for imgs in images %}
+        <img src="{{imgs}}" alt="NASA Images" />
+        {% endfor %}
+    </section>
+{% endif %}
+
+{% endblock %}

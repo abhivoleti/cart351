@@ -3,14 +3,23 @@
 {% block content %}
    
     <section class="inputData">
-        <form action="{{ url_for('getSearchCriteria') }}" method="get">
-            
-            <h3>NASA API SEARCH CRITERIA</h3>
+        <form action="{{ url_for('getSearchCriteria') }}" method="get">   
+        <h3>NASA API SEARCH CRITERIA</h3>
             </fieldset>
             <p></p>
                 <input type="text" size="28" maxlength="40" name="searchquery" placeholder="Enter search criteria" required>
             </p>
+              <input id="submitBtn" type = "submit" name="submit" style="margin: 10px "/>
             </fieldset>
         </form>
     </section>
+
+{% if have_results %}
+    <section class = "results">
+        <h3>Results</h3>
+        <p> Description: {{description}}</p>
+        <img src="{{imgPath}}" alt="NASA Image" />
+    </section>
+{% endif %}
+
 {% endblock %}
