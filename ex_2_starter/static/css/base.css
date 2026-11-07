@@ -1,71 +1,82 @@
 *{
     margin:0;
-     padding:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
     font-family: "Roboto", sans-serif;
-   
+    background-color: rgb(229, 236, 245);
 }
-h2{
 
+h2{
     font-size:32px;
-    padding:5px;
+    padding:10px 20px;
     background-color:rgb(14, 181, 232);
     color: rgb(255,255,255);
 }
+
 nav{
-    padding-bottom:5px;
+    padding:0 20px 10px;
     background-color:rgb(14, 181, 232);
 }
+
 nav ul{
     display:flex;
     justify-content:right;
-  
+    gap:20px;
 }
-nav ul li{
-    width:10%;
-    text-transform: uppercase;
-    text-decoration: none;
-    list-style-type: none;
 
-      
+nav ul li{
+    text-transform: uppercase;
+    list-style-type: none;
 }
+
 nav li a{
-text-decoration: none;
-color:rgb(255, 255, 255);
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+}
+
+nav li a:hover{
+    text-decoration: underline;
 }
 
 main{
-    margin: 10px;
-     background-color: rgb(229, 236, 245);
-     min-height:calc(82vh);
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    min-height:calc(80vh);
 }
 
 footer{
-     background-color:rgb(14, 181, 232);
-       min-height:5vh;
-       padding:5px;
-       color: rgb(255,255,255);
-
+    background-color:rgb(14, 181, 232);
+    min-height:5vh;
+    padding:10px 20px;
+    color: rgb(255,255,255);
 }
 
 .images-results {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 10px;
+    padding: 15px;
 }
 
 .images-results img {
     width: 100%;
     height: 200px;
-    object-fit: cover;   /* crops images so they all fit the same size */
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.results img{
+    max-width: 100%;
+    margin: 0 15px;
+    border-radius: 6px;
 }
 
 p{
-    font-family: "Jersey M54", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     color: rgb(0,0,0);
     padding: 15px;
 }
@@ -73,15 +84,28 @@ p{
 h3{
     font-family: "Jersey M54", sans-serif;
     font-weight: 400;
-    font-style: normal;
+    font-size: 24px;
     color: rgb(0,0,0);
     padding: 15px;
 }
 
 input{
-    font-family: "Jersey M54", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
     color: rgb(0,0,0);
-    padding: 15px;
+    padding: 10px;
+    margin-left: 15px;
+    border: 1px solid rgb(180, 190, 205);
+    border-radius: 6px;
+}
+
+#submitBtn{
+    background-color: rgb(14, 181, 232);
+    color: rgb(255,255,255);
+    border: none;
+    cursor: pointer;
+}
+
+#submitBtn:hover{
+    background-color: rgb(8, 140, 185);
 }
