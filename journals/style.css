@@ -1,0 +1,161 @@
+@font-face {
+  font-family: "Galvji";
+  src: url("assets/galvji.ttf") format("truetype");
+  font-display: swap;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { min-height: 100%; }
+
+body {
+  /* Grid paper drawn with CSS so it stays sharp at any size */
+  background-color: #fbf3e2;
+  background-image:
+    linear-gradient(to right, rgba(122, 163, 214, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(122, 163, 214, 0.25) 1px, transparent 1px);
+  background-size: 18px 18px;
+  background-attachment: fixed;
+  font-family: "Galvji", system-ui, sans-serif;
+  color: #2b2b2b;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- Home page: scattered sticky notes ---------- */
+.board {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 640px;
+}
+
+.title {
+  position: absolute;
+  top: 1vh;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(5rem, 1vw, 2rem);
+  font-weight: 400;
+  letter-spacing: -0.2em;
+  pointer-events: none;
+}
+
+.note {
+  position: absolute;
+  width: clamp(100px, 10vw, 15px);
+  aspect-ratio: 592 / 622;
+  background: url("assets/sticky-note.png") center / contain no-repeat;
+  display: flex;
+  align-items: flex-end;   /* label sits just under the paper's bottom edge */
+  justify-content: center;
+  line-height: 8;
+  text-decoration: none;
+  color: #f9ffd8;
+  font-size: clamp(0.85rem, 1vw, 1.05rem);
+  font-weight: 10;
+  letter-spacing: -0.14em;
+  transform: rotate(var(--r, 0deg));
+  transition: filter 0.25s ease;
+  /* filter: drop-shadow(1px 2px 2px rgba(0, 0, 0, 0.12)); */
+}
+
+/* subtle hover: shadow deepens slightly, no movement or tilt */
+.note:hover,
+.note:focus-visible {
+  filter: drop-shadow(0.1px 1px 1px rgba(0, 0, 0, 0.2));
+  outline: none;
+}
+
+/* positions around the page */
+.n1 { top: 16%; left: 6%;  --r: -6deg; }
+.n2 { top: 14%; left: 40%; --r: 4deg;  }
+.n3 { top: 18%; right: 7%; --r: -3deg; }
+.n4 { top: 48%; left: 20%; --r: 7deg;  }
+.n5 { top: 50%; right: 22%; --r: -5deg; }
+.n6 { bottom: 4%; left: 4%; --r: 3deg; }
+.n7 { bottom: 3%; right: 5%; --r: -8deg; }
+
+/* On phones, stack the notes in a tidy grid instead */
+@media (max-width: 700px) {
+  .board {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    padding: 120px 16px 40px;
+  }
+  .note { position: relative; inset: auto; width: 30vw; max-width: 130px; }
+}
+
+/* ---------- Journal pages ---------- */
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+}
+
+.back {
+  display: inline-block;
+  font-size: 0.95rem;
+  color: #2a5db0;
+  text-decoration: none;
+  margin-bottom: 24px;
+}
+.back:hover { text-decoration: underline; }
+
+.page h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 400; margin-bottom: 16px; letter-spacing: -0.1em;  }
+
+.page p {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  color: #3a3a3a;
+}
+
+/* entry layout */
+.entry-head { margin-bottom: 24px; }
+.entry-head h1 { margin-bottom: 4px; }
+.subtitle { font-size: 1.1rem; color: #6b6b6b; margin-bottom: 0; }
+
+.entry-figure { margin: 0 0 32px; }
+.entry-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.entry-figure figcaption {
+  font-size: 0.85rem;
+  color: #6b6b6b;
+  margin-top: 8px;
+}
+
+.page h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 32px 0 8px;
+}
+
+.pull-quote {
+  margin: 32px 0;
+  padding-left: 16px;
+  border-left: 2px solid #7aa3d6;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #444;
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 48px;
+  letter-spacing: -0.14em;
+  font-size: 0.95rem;
+}
+.pager a { color: #2a5db0; text-decoration: none; }
+.pager a:hover { text-decoration: underline; }
